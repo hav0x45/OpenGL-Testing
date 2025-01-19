@@ -5,13 +5,17 @@ using namespace std;
 
 int main() {
 
-    /*
-    if(!glfwInit()) {
+    bool init = true;
+
+    if(init) {
         std::cout << "Failed to initialize GLFW" << std::endl;
     } else {
         std::cout << "Successfully initialized OpenGL!" << std::endl;
     }
-    */
+
+    double time = glfwGetTime();
+
+    std::cout << time;
 
     std::cout << "Hello OpenGL Program!" << std::endl;
 
