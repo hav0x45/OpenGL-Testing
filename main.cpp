@@ -3,21 +3,32 @@
 #include <GLFW/glfw3.h>
 using namespace std;
 
-int main() {
+int main(void)
+{
+	GLFWwindow *window;
 
-    bool init = true;
+	if (!glfwInit()) {
+		perror("glfwInit Error");
+		return -1;
+	}
 
-    if(init) {
-        std::cout << "Failed to initialize GLFW" << std::endl;
-    } else {
-        std::cout << "Successfully initialized OpenGL!" << std::endl;
-    }
+	window = glfwCreateWindow(640, 400, "Hello GLFW", NULL, NULL);
+	if (!window) {
+		perror("glfwCreatewindow Error");
+		glfwTerminate();
+		return -1;
+	}
 
-    double time = glfwGetTime();
+	glfwMakeContextCurrent(window);
 
-    std::cout << time;
+	while (!glfwWindowShouldClose(window)) {
+		glClear(GL_COLOR_BUFFER_BIT);
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	}
 
-    std::cout << "Hello OpenGL Program!" << std::endl;
+    std::cout << "Hello!" << std::endl;
 
-    return 0;
+	glfwTerminate();
+	return 0;
 }
