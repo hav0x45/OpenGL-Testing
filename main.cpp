@@ -5,30 +5,10 @@ using namespace std;
 
 int main(void)
 {
-	GLFWwindow *window;
 
-	if (!glfwInit()) {
-		perror("glfwInit Error");
-		return -1;
-	}
+    std::cout << "Hello Terminal!" << std::endl;
 
-	window = glfwCreateWindow(640, 400, "Hello GLFW", NULL, NULL);
-	if (!window) {
-		perror("glfwCreatewindow Error");
-		glfwTerminate();
-		return -1;
-	}
+	GLFWwindow* window = glfwCreateWindow(640, 480, "My Title", glfwGetPrimaryMonitor(), NULL);
 
-	glfwMakeContextCurrent(window);
-
-	while (!glfwWindowShouldClose(window)) {
-		glClear(GL_COLOR_BUFFER_BIT);
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-	}
-
-    std::cout << "Hello!" << std::endl;
-
-	glfwTerminate();
 	return 0;
 }
