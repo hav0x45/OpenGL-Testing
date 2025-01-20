@@ -1,1 +1,1 @@
-g++ -o main main.cpp -I./include/ -L./lib/ -lglfw3dll -lglfw3 --static -Wall
+g++ -o main main.cpp -I./include/ -L./lib/ -lglfw3dll -lglfw3 -lgdi32
