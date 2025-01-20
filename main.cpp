@@ -4,28 +4,39 @@
 #include <string>
 using namespace std;
 
-int main()
+int main(void)
 {
+    GLFWwindow* window;
 
-	// Check for GLFW init
-	if(!glfwInit) {
-		std::cout << "Something failed succesfully!" << std::endl;
-	} else {
-		std::cout << "GLFW Successfully initialized!" << std::endl;
+    /* Initialize the library */
+    if (!glfwInit()) {
+		return -1;
 	}
 
     // Create a window
-    GLFWwindow* window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    
-	// Check for the window
-	if (!window)
+    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!window)
     {
         glfwTerminate();
         return -1;
     }
 
-	// Terminate the program
-	glfwTerminate();
+    // Make the window's context current
+    glfwMakeContextCurrent(window);
 
-	return 0;
+    // Loop until the user closes the window
+    while (!glfwWindowShouldClose(window))
+    {
+        // Render here
+        // glClear(GL_COLOR_BUFFER_BIT); Doesn't work
+
+        // Swap front and back buffers
+        glfwSwapBuffers(window);
+
+        // Poll for and process events
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
+    return 0;
 }
