@@ -13,15 +13,14 @@ int main()
 		std::cout << "GLFW Successfully initialized!" << std::endl;
 	}
 
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-
-	GLFWwindow* window = glfwCreateWindow(640, 480, "My Title", NULL, NULL);
+    /* Create a windowed mode window and its OpenGL context */
+    GLFWwindow* window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    
 	if (!window)
-	{
-		// Window or OpenGL context creation failed
-		std::cout << "Something failed." << std::endl;
-	}
+    {
+        glfwTerminate();
+        return -1;
+    }
 
 	glfwTerminate();
 
