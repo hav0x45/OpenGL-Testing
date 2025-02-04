@@ -1,8 +1,6 @@
 #define GLFW_DLL
 #include <iostream>
 #include <GLFW/glfw3.h>
-#include <string>
-using namespace std;
 
 int main(void)
 {
@@ -14,7 +12,7 @@ int main(void)
 	}
 
     // Create a window
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(600, 600, "DLL Testing Software", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
